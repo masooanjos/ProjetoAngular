@@ -1,27 +1,61 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+*{
   margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#container a {
-  text-decoration: none;
+.fundo{
+  background-image: url(https://images.pexels.com/photos/4017166/pexels-photo-4017166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.coluna2{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+h1{
+  font-size: 50px;
+  padding: 60px;
+}
+
+.botao-conta{
+  --background: rgb(126, 61, 156);
+  --border-radius: 15px;
+  width: 150px;
+  margin: 40px;
+  margin-bottom: 10px;
+}
+
+
+.login-com{
+  margin: 10px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.face-color{
+  --background: rgb(0, 0, 173);
+  margin: 5px;
+  font-size: 10px;
+}
+
+.passarinho-color{
+  --background: rgb(66, 175, 248);
+  margin: 5px;
+  font-size: 10px;
+}
+
+.google-color{
+  --background: rgb(170, 33, 33);
+  margin: 5px; 
+  font-size: 10px;
 }
