@@ -1,27 +1,46 @@
-#container {
-  text-align: center;
+.calendario{
+  &__foto{
+   width: 100%;
+   border-radius: 10px;
+  }
+  &__mes{
+    font-size: 1.6rem; //pra se comportar tanto no mobilo quanto no desktop
+    color: #012E40;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+  }
+  &__ano{
+    font-size: 1.6rem; //pra se comportar tanto no mobilo quanto no desktop
+    color: #012E40;
+    font-weight: bold;
+  }
+  &__dia-semana{
+    color: #ffffff;
+    font-weight: bold;
+    
+  }
+  &__dia{
+    color:#012E40;
+    font-weight: bold;
+  }
+}
+  #linha{
+    background-color:  #012E40;
+    border-radius: 10px;
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.header{
+  // --background: rgb(1,46,64);
+  --background: linear-gradient(90deg, rgba(1,46,64,1) 0%, rgba(69,144,191,1) 35%, rgba(201,223,242,1) 100%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.title{
+  --color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+// .fundo{
+//   background-color: #e2f0fd;
+//   border-radius: 10px;
+// }
