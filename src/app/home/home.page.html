@@ -1,155 +1,184 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Etec
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
 
-  <!-- Menu Superior de Curso -->
-  <ion-row>
-    <ion-col size="12">
-      <ion-segment value="desenvolvimento_sistemas">
-        <ion-segment-button value="desenvolvimento_sistemas">
-          <ion-label>Desenvolvimento de Sistemas</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="informatica_internet">
-          <ion-label>Informática para Internet</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="quimica">
-          <ion-label>Química</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10" size-lg="8" class="ion-text-center">
+     
+      <!-- Cabeçalho -->
+      <ion-row>
+        <ion-col size="4"> <!-- col do lado da direita-->
+         <img src="">
+        </ion-col>
+        <ion-col size="8">
+          <ion-row>
+            <ion-col size="12">
+              <ion-label>
+                {{ perfil.nome }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+    
+          <ion-row>
+            <ion-col size="12">
+              <ion-label>
+                {{ perfil.profissao }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+    
+          <ion-row>
+            <ion-col size="6">
+              <ion-button expand="full" shape="round" color="primary" (click)="this.setSeguir()">
+                {{this.seguir_status}}
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+            <ion-button expand="full" shape="round" color="secondary" routerLink="/mensagem">
+              Mensagem
+            </ion-button>
+          </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+       <!-- Métricas  Sociais -->
+       <ion-row>
+        <ion-col size="4">
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                {{ this.metricas_sociais.curtidas}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                Curtidas
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                {{ this.metricas_sociais.seguidores}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                Seguidores
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                {{ this.metricas_sociais.amigos}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-label>
+                Amigos
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+        </ion-col>
+
+       </ion-row>
+      
+       <!-- Linha de divisão -->
+       <ion-row>
+        <ion-col size="12">
+          <ion-item-divider></ion-item-divider>
+        </ion-col>
+       </ion-row>
+
+       <!-- Sobre -->
+       <ion-row>
+        <ion-col size="12" class="ion-text-start">Sobre</ion-col>
+        <ion-col size="12" class="ion-text-start">{{ this.perfil.biografia}}</ion-col>
+       </ion-row>
+
+       <!-- Linha de divisão -->
+       <ion-row>
+        <ion-col size="12">
+          <ion-item-divider></ion-item-divider>
+        </ion-col>
+       </ion-row>
+
+       <!-- Postagens de Amigos-->
+       <ion-row>
+        <ion-col size="12" class="ion-text-start">
+          <ion-label>Postagens de Amigos</ion-label>
+        </ion-col>
+       </ion-row>
+
+       <!-- Postagens -->
+       <ng-container *ngFor="let post of this.postagens">
+        <ion-row>
+        <ion-col size="4">
+          <ion-avatar>
+            <ng-container *ngIf="post.perfil.foto">
+              <img src="{{ post.perfil.foto}}">
+            </ng-container>
+            <ng-container *ngIf="!post.perfil.foto">
+                <img src="https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png">
+            </ng-container>
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="8">
+          <ion-row>
+            <ion-col size="auto">
+              <ion-label> {{ post.perfil.nome}}</ion-label>
+            </ion-col>
+
+            <ion-col size="auto">
+              <ion-label> {{ post.perfil.mencao_perfil}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-label>{{ post.postagem.mensagem}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ng-container *ngIf="post.postagem.foto">
+            <ion-row>
+              <ion-col size="12">
+                <img src="{{ post.postagem.foto}}">
+              </ion-col>
+            </ion-row>
+          </ng-container>
+
+        </ion-col>
+       </ion-row>
+       <!-- Linha de divisão -->
+       <ion-row>
+        <ion-col size="12">
+          <ion-item-divider></ion-item-divider>
+        </ion-col>
+       </ion-row>
+       </ng-container>
+       
+
     </ion-col>
   </ion-row>
 
-  <!-- Linha Desenvolvimento de Sistemas -->
-  <ion-row>
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Programação Mobile</ion-card-title>
-          <ion-card-subtitle>Bootstrap & Ionic</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/614117/pexels-photo-614117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Programação Mobile</ion-card-title>
-          <ion-card-subtitle>HTML & CSS</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Programação Mobile</ion-card-title>
-          <ion-card-subtitle>JavaScript & TypeScript</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <!-- Linha Química -->
-  <ion-row>
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/3825572/pexels-photo-3825572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Química</ion-card-title>
-          <ion-card-subtitle>Ligações Químicas</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/3082451/pexels-photo-3082451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Química</ion-card-title>
-          <ion-card-subtitle>Funções Químicas</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/954585/pexels-photo-954585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Químicas</ion-card-title>
-          <ion-card-subtitle>Reações Químicas e Energia</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <!-- Linha Informática Para Internet -->
-  <ion-row>
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Informática Para Internet</ion-card-title>
-          <ion-card-subtitle>Manutenção de Computadores</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/50711/board-electronics-computer-data-processing-50711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Informática Para Internet</ion-card-title>
-          <ion-card-subtitle>Lógica de Programação</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="4">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/1472443/pexels-photo-1472443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <ion-card-header>
-          <ion-card-title>Informática Para Internet</ion-card-title>
-          <ion-card-subtitle>Banco de Dados</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
   
-
 </ion-content>
