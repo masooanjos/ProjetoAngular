@@ -9,6 +9,9 @@
           <ion-row class="result">
             <ion-col size="12"> <!-- col do lado da direita-->
               <ion-label>
+                {{ this.igual }}
+              </ion-label>
+              <ion-label>
                 {{ this.resultado }}
               </ion-label>
             </ion-col>
@@ -34,19 +37,19 @@
 
                 <ion-col size="3">
                   <ion-label>
-                    <ion-button class="buttonPrimeiraLinha" (click)="exibir('+/-')">+/-</ion-button>
+                    <ion-button class="buttonPrimeiraLinha" (click)="inverterSinal()">+/-</ion-button>
                   </ion-label>
                 </ion-col>
 
                 <ion-col size="3">
                   <ion-label>
-                    <ion-button class="buttonPrimeiraLinha" (click)="exibir('%')">%</ion-button>
+                    <ion-button class="buttonPrimeiraLinha" (click)="operadores('%')">%</ion-button>
                   </ion-label>
                 </ion-col>
 
                 <ion-col size="3">
                   <ion-label>
-                    <ion-button class="buttonultimaColuna" (click)="exibir('/')">/</ion-button>
+                    <ion-button class="buttonultimaColuna" (click)="operadores('/')">/</ion-button>
                   </ion-label>
                 </ion-col>
 
@@ -71,7 +74,7 @@
 
                 <ion-col size="3">
                   <ion-label>
-                    <ion-button class="buttonultimaColuna" (click)="exibir('X')">X</ion-button>
+                    <ion-button class="buttonultimaColuna" (click)="operadores('*')">X</ion-button>
                   </ion-label>
                 </ion-col>
 
@@ -91,7 +94,7 @@
                 </ion-col>
 
                 <ion-col size="3">
-                  <ion-button class="buttonultimaColuna" (click)="exibir('-')">-</ion-button>
+                  <ion-button class="buttonultimaColuna" (click)="operadores('-')">-</ion-button>
                 </ion-col>
               </ion-row>
 
@@ -109,7 +112,7 @@
                 </ion-col>
 
                 <ion-col size="3">
-                  <ion-button class="buttonultimaColuna" (click)="exibir('+')">+</ion-button>
+                  <ion-button class="buttonultimaColuna" (click)="operadores('+')">+</ion-button>
                 </ion-col>
               </ion-row>
 
@@ -123,7 +126,7 @@
                 </ion-col>
 
                 <ion-col size="3">
-                  <ion-button class="buttonultimaColuna" (click)="exibir('=')">=</ion-button>
+                  <ion-button class="buttonultimaColuna" (click)="botaoIgual()">=</ion-button>
                 </ion-col>
               </ion-row>
 
