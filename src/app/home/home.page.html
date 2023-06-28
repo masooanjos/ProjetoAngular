@@ -8,10 +8,10 @@
         <ion-col>
           <ion-row class="result">
             <ion-col size="12"> <!-- col do lado da direita-->
-              <ion-label>
+              <ion-label class="display">
                 {{ this.igual }}
               </ion-label>
-              <ion-label>
+              <ion-label class="resultado">
                 {{ this.resultado }}
               </ion-label>
             </ion-col>
@@ -49,7 +49,7 @@
 
                 <ion-col size="3">
                   <ion-label>
-                    <ion-button class="buttonultimaColuna" (click)="operadores('/')">/</ion-button>
+                    <ion-button class="buttonultimaColuna" (click)="operadores('/')">÷</ion-button>
                   </ion-label>
                 </ion-col>
 
