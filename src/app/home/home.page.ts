@@ -44,6 +44,13 @@ export class HomePage {
 
   //função que inverte o sinal do número (+/-)
   inverterSinal() {
+    if(this.igual < 0){
+      //função que inverte para positivo caso já esteja negativo
+      let b = Math.abs(this.igual);
+      this.igual = b;
+      this.resultado = this.igual;
+      return;
+    }
     //o split está dividindo a expressão em partes diferentes
     this.igual = this.igual.split(/([-+*/])/);
     //inverte o sinal do último elemento
@@ -54,8 +61,8 @@ export class HomePage {
     this.igual = this.igual.join("")
     //está adicionando o número invertido ao igual
     this.igual += ultimo;
-  }
-
+    this.resultado = this.igual;
+}
   //essa função realiza as expressões(soma, subtração, multiplicação e divisão)
   operadores(numero: any) {
     //se o array estiver vazio ele não deixa colocar operadores além do sinal de subtração(-)
@@ -74,6 +81,7 @@ export class HomePage {
   botaoIgual() {
     //o eval calcula as expressões
     this.resultado = eval(this.igual);
+    this.igual = '';
   }
 
   //função que gera cálculo da porcentagem
@@ -96,6 +104,7 @@ export class HomePage {
     let aux = this.igual.split(/([-+*/])/);
     //faz o calcula da porcentagem do número escolhido
     this.igual += Number(aux[aux.length - 3]) * porcento;
+    this.resultado = eval(this.igual);
   }
 
   //função que atualiza o resultado
